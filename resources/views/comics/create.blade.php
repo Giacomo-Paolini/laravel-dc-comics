@@ -74,8 +74,9 @@
                     <div class="invalid-feedback">{{ $message }}</div>
                 @enderror
 
-                <button class="form-control mt-3" type="submit">New Item</button>
+                <button class="form-control mt-3 text-light bg-dark" type="submit">New Item</button>
             </form>
+            <button class="p-2 mt-4 bg-dark"><a href="{{route('home')}}">Back to home</a></button>
         </div>
     </div>
 @endsection
