@@ -4,6 +4,9 @@
     <div class="container">
         <div class="row">
             <h1 class="text-center">Elenco dei Fumetti</h1>
+            <div class="text-center">
+                <button class="w-25 p-2 mt-4 bg-dark"><a href="{{route('comics.create')}}">Create Item</a></button>
+            </div>
             <div class="d-flex flex-wrap justify-content-center p-5 gap-3">
                 @foreach ($comics as $comic)
                 <div class="card col-4 p-2">
