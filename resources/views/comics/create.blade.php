@@ -17,7 +17,7 @@
         </div>
 
         <div class="row">
-            <form class="my-4" action="{{ route('comics.store')}}" method="POST">
+            <form class="my-4" action="{{ route('comics.store')}}" method="POST" class="needs-validation">
                 @csrf
 
                 <label for="title">Title</label>

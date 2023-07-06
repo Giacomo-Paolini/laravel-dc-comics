@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\Comic;
+use Illuminate\Support\Facades\Validator;
 
 
 class ComicController extends Controller
@@ -30,6 +31,34 @@ class ComicController extends Controller
         return view("comics.create");
     }
 
+    private function validateProduct($data) {
+        $validator = Validator::make($data, [
+            "title" => "required|min:5|max:100",
+            "description" => "max:65535",
+            "thumb" => "max:65535",
+            "price" => "min:4|max:100",
+            "series" => "max:100",
+            "sale_date" => "max:100",
+            "type" => "required|max:100",
+            "sale_date" => "required|max:100",
+            "type" => "required|max:20",
+            "artists" => "max:3000",
+            "writers" => "max:3000",
+        ], [
+            "title.required" => "Il titolo è obbligatorio",
+            "title.min" => "Il titolo deve essere almeno di :min caratteri",
+
+            "price.required" => "Il price è obbligatorio",
+            "price.min" => "Il price deve essere almeno di 4 cifre 00.00",
+
+            "sale_date.required" => "La data è obbligatorio",
+
+            "type.required" => "Il type è obbligatorio",
+            ])->validate();
+
+        return $validator;
+    }
+
     /**
      * Store a newly created resource in storage.
      *
@@ -38,7 +67,7 @@ class ComicController extends Controller
      */
     public function store(Request $request)
     {
-        $data = $request->all();
+        $data = $this->validateProduct( $request->all() );
 
         $newComic = new Comic;
         $newComic->title = $data['title'];
