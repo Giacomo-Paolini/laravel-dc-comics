@@ -12,6 +12,7 @@
                 <strong>{{ $comic->price }}</strong><br>
                 <small>{{ $comic->series }}</small><br>
                 <button class="p-2 mt-4 bg-dark"><a href="{{route('home')}}">Back to home</a></button>
+                <button class="p-2 mt-4 bg-dark"><a href="{{route('comics.edit', $comic->id)}}">Edit</a></button>
             </div>
         </div>
     </div>
