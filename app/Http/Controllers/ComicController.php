@@ -3,7 +3,7 @@
 namespace App\Http\Controllers;
 
 // use Illuminate\Http\Request;
-use App\Http\Controllers\UpdateComicRequest;
+use App\Http\Requests\UpdateComicRequest;
 use App\Http\Requests\StoreComicRequest;
 use App\Models\Comic;
 // use Illuminate\Support\Facades\Validator;
